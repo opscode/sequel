@@ -10,12 +10,12 @@ module Sequel
     def self.uri_to_options(uri)
       { :user => uri.user,
         :password => uri.password,
-        :host => uri.host,
+        :host => uri.hostname, # hostname works with ipv6 address literals
         :port => uri.port,
         :database => (m = /\/(.*)/.match(uri.path)) && (m[1]) }
     end
     private_class_method :uri_to_options
-    
+
     # The options hash for this database
     attr_reader :opts
     
