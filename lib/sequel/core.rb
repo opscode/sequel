@@ -1,5 +1,6 @@
 warn 'Sequel support for ruby <1.8.7 is deprecated and will be removed in 3.35.0' if RUBY_VERSION < '1.8.7'
 %w'bigdecimal date thread time uri'.each{|f| require f}
+require 'sequel/extensions/uri' # ipv6 backports support
 
 # Top level module for Sequel
 #
